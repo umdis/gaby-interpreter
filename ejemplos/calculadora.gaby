@@ -1,0 +1,148 @@
+// calculadora.gaby - Una calculadora simple en Gaby
+
+// Definir la clase Calculadora
+clase Calculadora {
+    // Propiedades
+    num resultado
+    texto historial
+    
+    // Constructor
+    crear() {
+        esto.resultado = 0
+        esto.historial = ""
+    }
+    
+    // Métodos para operaciones básicas
+    fun sumar(num valor) {
+        esto.resultado = esto.resultado + valor
+        esto.historial = esto.historial + " + " + texto(valor)
+        devolver esto.resultado
+    }
+    
+    fun restar(num valor) {
+        esto.resultado = esto.resultado - valor
+        esto.historial = esto.historial + " - " + texto(valor)
+        devolver esto.resultado
+    }
+    
+    fun multiplicar(num valor) {
+        esto.resultado = esto.resultado * valor
+        esto.historial = esto.historial + " * " + texto(valor)
+        devolver esto.resultado
+    }
+    
+    fun dividir(num valor) {
+        si valor == 0 {
+            mostrar("Error: División por cero")
+            devolver esto.resultado
+        }
+        
+        esto.resultado = esto.resultado / valor
+        esto.historial = esto.historial + " / " + texto(valor)
+        devolver esto.resultado
+    }
+    
+    fun elevar(num exponente) {
+        esto.resultado = potencia(esto.resultado, exponente)
+        esto.historial = esto.historial + " ^ " + texto(exponente)
+        devolver esto.resultado
+    }
+    
+    fun raiz_cuadrada() {
+        si esto.resultado < 0 {
+            mostrar("Error: No se puede calcular la raíz cuadrada de un número negativo")
+            devolver esto.resultado
+        }
+        
+        esto.resultado = raiz(esto.resultado)
+        esto.historial = esto.historial + " √"
+        devolver esto.resultado
+    }
+    
+    // Métodos para gestionar el estado
+    fun limpiar() {
+        esto.resultado = 0
+        esto.historial = ""
+        devolver esto.resultado
+    }
+    
+    fun obtener_resultado() {
+        devolver esto.resultado
+    }
+    
+    fun obtener_historial() {
+        si esto.historial == "" {
+            devolver texto(esto.resultado)
+        }
+        
+        devolver texto(esto.resultado) + " (" + esto.historial + " )"
+    }
+}
+
+// Función para mostrar el menú
+fun mostrar_menu() {
+    mostrar("\n=== CALCULADORA GABY ===")
+    mostrar("1. Sumar")
+    mostrar("2. Restar")
+    mostrar("3. Multiplicar")
+    mostrar("4. Dividir")
+    mostrar("5. Elevar a potencia")
+    mostrar("6. Raíz cuadrada")
+    mostrar("7. Limpiar")
+    mostrar("8. Salir")
+    mostrar("Resultado actual: " + texto(calc.obtener_historial()))
+    mostrar("------------------------")
+    mostrar("Seleccione una opción: ")
+}
+
+// Función principal
+fun principal() {
+    // Crear una instancia de la calculadora
+    calc := nuevo Calculadora()
+    opcion := 0
+    
+    // Bucle principal
+    mientras verdad {
+        mostrar_menu()
+        
+        // Leer la opción del usuario
+        opcion_texto := leer()
+        opcion := num(opcion_texto)
+        
+        // Procesar la opción
+        si opcion == 8 {
+            mostrar("¡Gracias por usar la calculadora Gaby!")
+            romper
+        }
+        
+        si opcion == 7 {
+            calc.limpiar()
+            continuar
+        }
+        
+        si opcion == 6 {
+            calc.raiz_cuadrada()
+            continuar
+        }
+        
+        // Para las opciones que necesitan un valor
+        si opcion >= 1 y opcion <= 5 {
+            mostrar("Ingrese un valor: ")
+            valor_texto := leer()
+            valor := num(valor_texto)
+            
+            cuando {
+                opcion == 1 -> calc.sumar(valor)
+                opcion == 2 -> calc.restar(valor)
+                opcion == 3 -> calc.multiplicar(valor)
+                opcion == 4 -> calc.dividir(valor)
+                opcion == 5 -> calc.elevar(valor)
+            }
+        } sino {
+            mostrar("Opción inválida. Intente de nuevo.")
+        }
+    }
+}
+
+// Iniciar la calculadora
+principal()
