@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/usuario/gaby-interpreter/internal/lexer"
+	"github.com/umdis/gaby-interpreter/internal/lexer"
 )
 
 // Constantes para definir precedencias de operadores

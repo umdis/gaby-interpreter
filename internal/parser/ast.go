@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"strings"
 
-	"github.com/usuario/gaby-interpreter/internal/lexer"
+	"github.com/umdis/gaby-interpreter/internal/lexer"
 )
 
 // Node es la interfaz base para todos los nodos del AST

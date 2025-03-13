@@ -2,8 +2,8 @@ package evaluator
 
 import (
 	"fmt"
-	"github.com/usuario/gaby-interpreter/internal/object"
-	"github.com/usuario/gaby-interpreter/internal/parser"
+	"github.com/umdis/gaby-interpreter/internal/object"
+	"github.com/umdis/gaby-interpreter/internal/parser"
 )
 
 // Objetos singleton para optimizar la creación de objetos comunes

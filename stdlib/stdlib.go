@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/usuario/gaby-interpreter/internal/object"
+	"github.com/umdis/gaby-interpreter/internal/object"
 )
 
 // LoadStdlib carga las funciones de la biblioteca estándar en el entorno

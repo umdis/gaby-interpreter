@@ -6,7 +6,7 @@ import (
 	"hash/fnv"
 	"strings"
 
-	"github.com/usuario/gaby-interpreter/internal/parser"
+	"github.com/umdis/gaby-interpreter/internal/parser"
 )
 
 // ObjectType es el tipo de un objeto

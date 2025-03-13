@@ -8,17 +8,17 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/usuario/gaby-interpreter/internal/evaluator"
-	"github.com/usuario/gaby-interpreter/internal/lexer"
-	"github.com/usuario/gaby-interpreter/internal/object"
-	"github.com/usuario/gaby-interpreter/internal/parser"
-	"github.com/usuario/gaby-interpreter/stdlib"
+	"github.com/umdis/gaby-interpreter/internal/evaluator"
+	"github.com/umdis/gaby-interpreter/internal/lexer"
+	"github.com/umdis/gaby-interpreter/internal/object"
+	"github.com/umdis/gaby-interpreter/internal/parser"
+	"github.com/umdis/gaby-interpreter/stdlib"
 )
 
 const GABY_EXTENSION = ".gaby"
 
 func main() {
-	// Obtener el usuario actual para saludar
+	// Obtener el umdis actual para saludar
 	user, err := user.Current()
 	if err != nil {
 		panic(err)
